@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: regoo707/fluentd
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   containerPort: 24224
 
 imagePullSecrets: []
