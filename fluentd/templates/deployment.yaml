@@ -25,11 +25,11 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | quote}}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{.Values.image.containerPort}}
+              containerPort: {{.Values.image.containerPort | quote}}
               protocol: TCP
           livenessProbe:
             httpGet:
